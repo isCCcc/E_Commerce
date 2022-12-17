@@ -10,7 +10,9 @@ Page({
         // 轮播图数据
         swiperList: [],
         // 商品分类数据
-        cateList: []
+        cateList: [],
+        // 楼层数据
+        floorList: [],
 
     },
 
@@ -20,6 +22,7 @@ Page({
     onLoad() {
         this.getSwiperList()
         this.getCateList()
+        this.getFloorList()
     },
     getSwiperList() {
         request({url: '/home/swiperdata',})
@@ -34,6 +37,16 @@ Page({
             .then(result => {
                 this.setData({
                     cateList: result.data.message
+                })
+            })
+    },
+    getFloorList() {
+        request({url: '/home/floordata'})
+            .then(result => {
+                let data = JSON.stringify(result.data.message)
+                    .replace(/goods_list/g, 'goods_list/index')
+                this.setData({
+                    floorList: JSON.parse(data),
                 })
             })
     },
