@@ -1,66 +1,24 @@
 // pages/category/index.js
+import { request } from "../../request/index";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    // 左侧菜单数据
+    leftMenuList: [],
+    // 右侧商品数据
+    rightContent: [],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  Cates: [],
+  onLoad() {
+    this.getCates()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  getCates() {
+    request({ url: "/categories" })
+      .then(result => {
+        this.Cates = result.data.message
+        console.log(this.Cates)
+        let leftMenuList = this.Cates.map(data => data.cat_name)
+        let rightContent = this.Cates.map(data => data.children)
+        this.setData({ leftMenuList, rightContent })
+      })
   }
 })
