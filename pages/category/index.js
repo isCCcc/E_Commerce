@@ -8,6 +8,8 @@ Page({
     rightContent: [],
     // 被点击的菜单索引
     currentIndex: 0,
+    // 右侧商品数据同顶部的距离
+    scrollTop: 0,
   },
   Cates: [],
   onLoad() {
@@ -28,7 +30,8 @@ Page({
     let rightContent = this.Cates[index].children
     this.setData({
       currentIndex: index,
-      rightContent
+      rightContent,
+      scrollTop: 0
     })
   },
 })
