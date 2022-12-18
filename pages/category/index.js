@@ -1,5 +1,7 @@
 // pages/category/index.js
 import { request } from "../../request/index";
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
 Page({
   data: {
     // 左侧菜单数据
@@ -29,19 +31,29 @@ Page({
       }
     }
   },
-  getCates() {
-    request({ url: "/categories" })
-      .then(result => {
-        this.Cates = result.data.message
+  async getCates() {
+    // Promise 写法
+    // request({ url: "/categories" })
+    //   .then(result => {
+    //     this.Cates = result.data.message
 
-        // 将接口数据存入本地存储
-        wx.setStorageSync('cates', { time: Date.now(), data: this.Cates })
+    //     // 将接口数据存入本地存储
+    //     wx.setStorageSync('cates', { time: Date.now(), data: this.Cates })
 
-        let leftMenuList = this.Cates.map(data => data.cat_name)
-        let rightContent = this.Cates[0].children
-        this.setData({ leftMenuList, rightContent })
-      })
+    //     let leftMenuList = this.Cates.map(data => data.cat_name)
+    //     let rightContent = this.Cates[0].children
+    //     this.setData({ leftMenuList, rightContent })
+    //   })
+
+    let result = await request({ url: "/categories" })
+    this.Cates = result.data.message
+    // 将接口数据存入本地存储
+    wx.setStorageSync('cates', { time: Date.now(), data: this.Cates })
+    let leftMenuList = this.Cates.map(data => data.cat_name)
+    let rightContent = this.Cates[0].children
+    this.setData({ leftMenuList, rightContent })
   },
+
   // 左侧菜单栏的点击事件
   handleItemTap(e) {
     const { index } = e.currentTarget.dataset
