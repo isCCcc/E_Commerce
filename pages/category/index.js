@@ -6,6 +6,8 @@ Page({
     leftMenuList: [],
     // 右侧商品数据
     rightContent: [],
+    // 被点击的菜单索引
+    currentIndex: 0,
   },
   Cates: [],
   onLoad() {
@@ -17,7 +19,7 @@ Page({
         this.Cates = result.data.message
         console.log(this.Cates)
         let leftMenuList = this.Cates.map(data => data.cat_name)
-        let rightContent = this.Cates.map(data => data.children)
+        let rightContent = this.Cates[0].children
         this.setData({ leftMenuList, rightContent })
       })
   }
