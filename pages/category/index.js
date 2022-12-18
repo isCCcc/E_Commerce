@@ -17,10 +17,18 @@ Page({
     request({ url: "/categories" })
       .then(result => {
         this.Cates = result.data.message
-        console.log(this.Cates)
         let leftMenuList = this.Cates.map(data => data.cat_name)
         let rightContent = this.Cates[0].children
         this.setData({ leftMenuList, rightContent })
       })
-  }
+  },
+  // 左侧菜单栏的点击事件
+  handleItemTap(e) {
+    const { index } = e.currentTarget.dataset
+    let rightContent = this.Cates[index].children
+    this.setData({
+      currentIndex: index,
+      rightContent
+    })
+  },
 })

@@ -3,9 +3,8 @@
     <view class="cates_container">
         <!-- 左侧菜单栏 -->
         <scroll-view scroll-y class="left_menu">
-            <view class="menu_item 
-            {{currentIndex===index?'active':''}}" 
-            wx:for="{{leftMenuList}}" wx:key="*this">
+            <view class="menu_item {{currentIndex==index?'active':''}} " wx:for="{{leftMenuList}}" wx:key="*this"
+                wx:index="index" bindtap="handleItemTap" data-index="{{index}}">
                 {{item}}
             </view>
         </scroll-view>
