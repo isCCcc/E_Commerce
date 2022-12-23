@@ -4,15 +4,25 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        tabs: [
+            {id: 0, value: '综合', isActive: true},
+            {id: 1, value: '销量', isActive: false},
+            {id: 2, value: '价格', isActive: false},
+        ]
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options)
     },
-
+    handletabsItemChange(e) {
+        const {index} = e.detail
+        let {tabs} = this.data
+        tabs.forEach(v => v.isActive = index === v.id)
+        this.setData({tabs})
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
