@@ -4,8 +4,6 @@ export const request=(params)=>{
     if (params.url.includes("/my/")) {
         header["Authorization"]=wx.getStorageSync('token')
     }
-
-
     ajaxtimes++;
     wx.showLoading({
         title: '加载中',

@@ -1,28 +1,45 @@
 // pages/goods_list/index.js
-Page({
+import {request} from "../../request/index";
+import regeneratorRuntime from '../../lib/runtime/runtime';
 
-    /**
-     * 页面的初始数据
-     */
+Page({
     data: {
         tabs: [
             {id: 0, value: '综合', isActive: true},
             {id: 1, value: '销量', isActive: false},
             {id: 2, value: '价格', isActive: false},
-        ]
+        ],
+        goodsList: [],
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
+    queryParams: {
+        query: '',
+        cid: '',
+        pageNum: 1,
+        pageSize: 10
+    },
+    totalPages: 1,
     onLoad(options) {
+        this.queryParams.cid = options.cid
+        this.getGoodsList()
     },
+    // 切换导航栏
     handletabsItemChange(e) {
         const {index} = e.detail
         let {tabs} = this.data
         tabs.forEach(v => v.isActive = index === v.id)
         this.setData({tabs})
     },
+    // 获取商品列表数据
+    async getGoodsList() {
+        let res = await request({url: "/goods/search", data: this.queryParams})
+        const total = res.data.message.total;
+        this.totalPages = Math.ceil(total / this.queryParams.pageSize)
+        this.setData({
+            goodsList: [...this.data.goodsList, ...res.data.message.goods]
+        })
+    },
+
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

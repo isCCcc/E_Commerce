@@ -5,52 +5,20 @@
         <block wx:if="{{tabs[0].isActive}}">
             <view class="goods">
 
-                <view class="goods_item">
+                <view class="goods_item"
+                      wx:for="{{goodsList}}"
+                      wx:key="{{goods_id}}"
+                >
                     <view class="goods_img">
-                        <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
+                        <image mode="widthFix"
+                               src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}"/>
                     </view>
                     <view class="goods_content">
                         <view class="goods_intro">海信杀菌的护士一点哈实现啥空间也挖好的就是喜欢撒旦滑稽的是黄金水道和坎村民，上课</view>
                         <view class="goods_prices">￥3999</view>
                     </view>
                 </view>
-                
-                <view class="goods_item">
-                    <view class="goods_img">
-                        <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
-                    </view>
-                    <view class="goods_content">
-                        <view class="goods_intro">海信杀菌的护士一点哈实现啥空间也挖好的就是喜欢撒旦滑稽的是黄金水道和坎村民，上课</view>
-                        <view class="goods_prices">￥3999</view>
-                    </view>
-                </view>
-                <view class="goods_item">
-                    <view class="goods_img">
-                        <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
-                    </view>
-                    <view class="goods_content">
-                        <view class="goods_intro">海信杀菌的护士一点哈实现啥空间也挖好的就是喜欢撒旦滑稽的是黄金水道和坎村民，上课</view>
-                        <view class="goods_prices">￥3999</view>
-                    </view>
-                </view>
-                <view class="goods_item">
-                    <view class="goods_img">
-                        <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
-                    </view>
-                    <view class="goods_content">
-                        <view class="goods_intro">海信杀菌的护士一点哈实现啥空间也挖好的就是喜欢撒旦滑稽的是黄金水道和坎村民，上课</view>
-                        <view class="goods_prices">￥3999</view>
-                    </view>
-                </view>
-                <view class="goods_item">
-                    <view class="goods_img">
-                        <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
-                    </view>
-                    <view class="goods_content">
-                        <view class="goods_intro">海信杀菌的护士一点哈实现啥空间也挖好的就是喜欢撒旦滑稽的是黄金水道和坎村民，上课</view>
-                        <view class="goods_prices">￥3999</view>
-                    </view>
-                </view>
+
             </view>
         </block>
         <block wx:elif="{{tabs[1].isActive}}">1</block>
