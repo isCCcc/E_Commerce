@@ -14,12 +14,12 @@ Page({
     queryParams: {
         query: '',
         cid: '',
-        pageNum: 1,
-        pageSize: 10
+        pagenum: 1,
+        pagesize: 10
     },
     totalPages: 1,
     onLoad(options) {
-        this.queryParams.cid = options.cid
+        this.queryParams.cid = options.cid || ''
         this.getGoodsList()
     },
     // 切换导航栏
@@ -33,13 +33,34 @@ Page({
     async getGoodsList() {
         let res = await request({url: "/goods/search", data: this.queryParams})
         const total = res.data.message.total;
-        this.totalPages = Math.ceil(total / this.queryParams.pageSize)
+        this.totalPages = Math.ceil(total / this.queryParams.pagesize)
         this.setData({
             goodsList: [...this.data.goodsList, ...res.data.message.goods]
         })
+
+        // 关闭下拉刷新窗口
+        wx.stopPullDownRefresh();
     },
 
-    
+    // 页面相关事件处理函数--监听用户下拉动作
+    onPullDownRefresh() {
+        this.setData({goodsList: []})
+        this.queryParams.pagenum = 1
+        this.getGoodsList()
+    },
+
+    // 页面上拉触底事件的处理函数
+    onReachBottom() {
+        if (this.queryParams.pagenum >= this.totalPages) {
+            wx.showToast({
+                title: '没有下一页数据'
+            })
+        } else {
+            this.queryParams.pagenum++
+            this.getGoodsList()
+        }
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -65,20 +86,6 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
 
     },
 
