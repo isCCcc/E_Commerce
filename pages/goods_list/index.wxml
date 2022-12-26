@@ -5,7 +5,9 @@
         <block wx:if="{{tabs[0].isActive}}">
             <view class="goods">
 
-                <view class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id">
+                <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id"
+                url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+                >
                     <view class="goods_img">
                         <image mode="widthFix"
                                src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}"/>
@@ -14,7 +16,7 @@
                         <view class="goods_intro">{{item.goods_name}}</view>
                         <view class="goods_prices">￥{{item.goods_price}}</view>
                     </view>
-                </view>
+                </navigator>
 
             </view>
         </block>

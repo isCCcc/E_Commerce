@@ -21,6 +21,13 @@
           "query": "cid=5",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/goods_detail/index",
+          "query": "goods_id=40802",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
