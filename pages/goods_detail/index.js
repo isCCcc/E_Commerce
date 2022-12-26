@@ -22,7 +22,7 @@ Page({
     async getGoodsDetail(goods_id) {
         const res = await request({url: "/goods/detail", data: {goods_id}})
         this.setData({
-            goodsObj: res
+            goodsObj: res.data.message
         })
     },
 
