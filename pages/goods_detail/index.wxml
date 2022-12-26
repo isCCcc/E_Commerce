@@ -2,7 +2,7 @@
 <view class="goods_detail">
     <view class="goods_swiper">
         <swiper autoplay circular indicator-dots>
-            <swiper-item wx:for="{{goodsObj.pics}}" wx:key="{{pics_id}}">
+            <swiper-item wx:for="{{goodsObj.pics}}" wx:key="pics_id">
                 <image mode="widthFix" src="{{item.pics_mid}}"></image>
             </swiper-item>
         </swiper>
@@ -22,9 +22,7 @@
         <view class="goods_title">图文详情</view>
         <view class="goods_content">
             <!-- 富文本 -->
-            <rich-text  nodes="{{goodsObj.goods_introduce}}">
-                
-            </rich-text>
+            <rich-text nodes="{{goodsObj.goods_introduce}}"></rich-text>
         </view>
     </view>
 </view>
