@@ -45,3 +45,41 @@
   font-weight: 600;
   padding: 20rpx;
 }
+.goods_detail .btm_tool {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  height: 90rpx;
+  display: flex;
+}
+.goods_detail .btm_tool .tool_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  position: relative;
+}
+.goods_detail .btm_tool .tool_item button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.goods_detail .btm_tool .btn_cart {
+  flex: 2;
+  font-size: 30rpx;
+  color: #fff;
+  background: #ffa300;
+}
+.goods_detail .btm_tool .btn_buy {
+  flex: 2;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #f8554e;
+}

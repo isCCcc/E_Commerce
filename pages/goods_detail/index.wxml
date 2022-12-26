@@ -2,11 +2,8 @@
 <view class="goods_detail">
     <view class="goods_swiper">
         <swiper autoplay circular indicator-dots>
-            <swiper-item wx:for="{{goodsObj.pics}}"
-                         wx:key="pics_id"
-                         bindtap="handlePreviewImage"
-                         data-url="{{item.pics_mid}}"
-            >
+            <swiper-item wx:for="{{goodsObj.pics}}" wx:key="pics_id" bindtap="handlePreviewImage"
+                data-url="{{item.pics_mid}}">
                 <image mode="widthFix" src="{{item.pics_mid}}"></image>
             </swiper-item>
         </swiper>
@@ -28,5 +25,24 @@
             <!-- 富文本 -->
             <rich-text nodes="{{goodsObj.goods_introduce}}"></rich-text>
         </view>
+    </view>
+
+    <view class="btm_tool">
+        <view class="tool_item">
+            <view class="iconfont icon-kefu"></view>
+            <view>客服</view>
+            <button open-type="contact"></button>
+        </view>
+        <view class="tool_item">
+            <view class="iconfont icon-fenxiang "></view>
+            <view>分享</view>
+            <button open-type="share"></button>
+        </view>
+        <navigator open-type="switchTab" url="/pages/cart/index" class="tool_item">
+            <view class="iconfont icon-gouwuche"></view>
+            <view>购物车</view>
+        </navigator>
+        <view class="tool_item btn_cart" bindtap="handlecartadd">加入购物车</view>
+        <view class="tool_item btn_buy">立即购买</view>
     </view>
 </view>
