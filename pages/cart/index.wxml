@@ -5,7 +5,7 @@
     </view>
     <view wx:else class="user_info_row">
         <view class="user_info">
-            <view>{{address.userName}}</view>
+            <view>收货人：{{address.userName}}</view>
             <view>{{address.all}}</view>
         </view>
         <view class="user_phone">{{address.telNumber}}</view>

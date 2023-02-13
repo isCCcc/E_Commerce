@@ -1,20 +1,17 @@
 // pages/cart/index.js
 Page({
+    data: {
+        address:{}
+    },
 
-    /**
-     * 页面的初始数据
-     */
-    data: {},
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
+    // 判断当前用户是否已经添加了收货地址
+    onShow() {
+        const address = wx.getStorageSync("address")
+        this.setData({address})
     },
 
     // 新增收获地址
-    handleChoose() {
+    handleChoose(obj) {
         // 1.获取权限状态
         wx.getSetting({
             success: (result) => {
@@ -23,8 +20,9 @@ Page({
                 if (scopeAddress === true || scopeAddress === undefined) {
                     // 3.调用获取收货地址的 api
                     wx.chooseAddress({
-                        success: (result1) => {
-                            console.log(result1);
+                        success: (res) => {
+                            res.all=res.provinceName+res.cityName+res.countyName+res.detailInfo;
+                            wx.setStorageSync('address', res)
                         }
                     })
                 } else {
@@ -33,8 +31,9 @@ Page({
                         success: (result2) => {
                             // 3.调用获取收货地址的 api
                             wx.chooseAddress({
-                                success: (result3) => {
-                                    console.log(result3);
+                                success: (res3) => {
+                                    res3.all=res3.provinceName+res3.cityName+res3.countyName+res3.detailInfo;
+                                    wx.setStorageSync('address', res3)
                                 }
                             })
                         }
