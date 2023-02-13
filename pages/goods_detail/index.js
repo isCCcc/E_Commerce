@@ -25,7 +25,8 @@ Page({
                 goods_id: goods_id,
                 goods_price: goodsObj.goods_price,
                 goods_name: goodsObj.goods_name,
-                goods_introduce: goodsObj.goods_introduce.replace(/\.webp/g, '.jpg')
+                goods_introduce: goodsObj.goods_introduce.replace(/\.webp/g, '.jpg'),
+                goods_small_logo: goodsObj.goods_small_logo
             }
         })
     },
@@ -39,7 +40,6 @@ Page({
 
     // 加入购物车
     handleCartAdd() {
-        console.log(this.data.goodsObj);
         let cart = wx.getStorageSync('cart') || [];
         let index = cart.findIndex(v => v.goods_id === this.data.goodsObj.goods_id);
         if (index === -1) {
