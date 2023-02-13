@@ -1,4 +1,5 @@
 <!--pages/cart/index.wxml-->
+<!--收获地址-->
 <view class="recevice_address_row">
     <view class="address_btn" wx:if="{{!address.userName}}">
         <button bindtap="handleChoose" type="primary" plain="true">获取收货地址</button>
@@ -9,5 +10,77 @@
             <view>{{address.all}}</view>
         </view>
         <view class="user_phone">{{address.telNumber}}</view>
+    </view>
+</view>
+<!--购物车内容-->
+<view class="cart_content">
+    <view class="cart_title">购物车</view>
+    <view class="cart_main">
+        <view class="cart_item">
+            <view class="cart_chk_wrap">
+                <checkbox-group>
+                    <checkbox></checkbox>
+                </checkbox-group>
+            </view>
+            <navigator class="cart_img_wrap">
+                <image mode="widthFix"
+                    src="http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000611616571_2_400x400.jpg" />
+            </navigator>
+            <view class="cart_info_wrap">
+                <view class="goods_name">数据库大家都我就爱三十年代赛马场暖红茶还是结婚登记开赛我等哈就你聪明可拉斯基数据库的设计拉开i文件</view>
+                <view class="goods_prices_wrap">
+                    <view class="goods_prices">￥ 9999</view>
+                    <view class="goods_tool">
+                        <view class="goods_edit">-</view>
+                        <view class="goods_num">10</view>
+                        <view class="goods_edit">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cart_item">
+            <view class="cart_chk_wrap">
+                <checkbox-group>
+                    <checkbox></checkbox>
+                </checkbox-group>
+            </view>
+            <navigator class="cart_img_wrap">
+                <image mode="widthFix"
+                    src="http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000611616571_2_400x400.jpg" />
+            </navigator>
+            <view class="cart_info_wrap">
+                <view class="goods_name">数据库大家都我就爱三十年代赛马场暖红茶还是结婚登记开赛我等哈就你聪明可拉斯基数据库的设计拉开i文件</view>
+                <view class="goods_prices_wrap">
+                    <view class="goods_prices">￥ 9999</view>
+                    <view class="goods_tool">
+                        <view class="goods_edit">-</view>
+                        <view class="goods_num">10</view>
+                        <view class="goods_edit">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cart_item">
+            <view class="cart_chk_wrap">
+                <checkbox-group>
+                    <checkbox></checkbox>
+                </checkbox-group>
+            </view>
+            <navigator class="cart_img_wrap">
+                <image mode="widthFix"
+                    src="http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000611616571_2_400x400.jpg" />
+            </navigator>
+            <view class="cart_info_wrap">
+                <view class="goods_name">数据库大家都我就爱三十年代赛马场暖红茶还是结婚登记开赛我等哈就你聪明可拉斯基数据库的设计拉开i文件</view>
+                <view class="goods_prices_wrap">
+                    <view class="goods_prices">￥ 9999</view>
+                    <view class="goods_tool">
+                        <view class="goods_edit">-</view>
+                        <view class="goods_num">10</view>
+                        <view class="goods_edit">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
 </view>

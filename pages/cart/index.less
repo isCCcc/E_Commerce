@@ -26,3 +26,91 @@ page {
         }
     }
 }
+
+.cart_content {
+
+    .cart_title {
+        padding: 20rpx;
+        font-size: 36rpx;
+        color: var(--themecolor);
+        border-top: 1rpx solid currentColor;
+        border-bottom: 1rpx solid currentColor;
+    }
+
+    .cart_main {
+        .cart_item {
+            display: flex;
+            margin: 0 10rpx;
+            padding: 10rpx 0;
+            border-bottom: 1rpx solid #ccc;
+
+            .cart_chk_wrap {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                checkbox-group {
+                    checkbox {}
+                }
+            }
+
+            .cart_img_wrap {
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                image {
+                    width: 80%;
+                }
+            }
+
+            .cart_info_wrap {
+                flex: 4;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .goods_name {
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    color: #666;
+                }
+
+                .goods_prices_wrap {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .goods_prices {
+                        color: var(--themecolor);
+                        font-size: 34rpx;
+                    }
+
+                    .goods_tool {
+                        display: flex;
+
+                        .goods_edit {
+                            width: 55rpx;
+                            height: 55rpx;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border: 1rpx solid #cccccc;
+                        }
+
+                        .goods_num {
+                            width: 55rpx;
+                            height: 55rpx;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
