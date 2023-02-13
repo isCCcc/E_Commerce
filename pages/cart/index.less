@@ -114,3 +114,46 @@ page {
         }
     }
 }
+
+.footer_tool {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 1rpx solid #ccc;
+
+    .all_chk_wrap {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #666;
+    }
+
+    .total_price_wrap {
+        flex: 5;
+        text-align: end;
+        padding: 5rpx 10rpx;
+
+        .total_price {
+            text {
+                color: var(--themecolor);
+                font-size: 34rpx;
+                font-weight: 600;
+            }
+
+            .tips {}
+        }
+    }
+
+    .order_pay_wrap {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        background-color: var(--themecolor);
+        font-size: 32rpx;
+        font-weight: 600;
+    }
+}
