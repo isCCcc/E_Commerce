@@ -28,6 +28,13 @@
           "query": "goods_id=40802",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/cart/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

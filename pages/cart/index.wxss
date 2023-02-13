@@ -1,1 +1,9 @@
-/* pages/cart/index.wxss */
+page {
+  padding-bottom: 90rpx;
+}
+.recevice_address_row .address_btn {
+  padding: 20rpx;
+}
+.recevice_address_row .address_btn button {
+  width: 60%;
+}
