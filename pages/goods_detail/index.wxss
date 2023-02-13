@@ -7,22 +7,22 @@
   width: 60%;
 }
 .goods_detail .goods_prices {
-  padding: 15rpx;
-  font-size: 32rpx;
+  padding: 15 rpx;
+  font-size: 32 rpx;
   font-weight: 600;
   color: var(--themecolor);
 }
 .goods_detail .goods_name_row {
-  border-top: 5rpx solid #dedede;
+  border-top: 5 rpx solid #dedede;
   border-bottom: 5px solid #dedede;
   display: flex;
-  padding: 10rpx 0;
+  padding: 10 rpx 0;
 }
 .goods_detail .goods_name_row .goods_name {
   flex: 5;
   color: #000;
-  font-size: 30rpx;
-  padding: 0 10rpx;
+  font-size: 30 rpx;
+  padding: 0 10 rpx;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
@@ -34,16 +34,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-left: 1rpx solid #000;
+  border-left: 1 rpx solid #000;
 }
 .goods_detail .goods_name_row .goods_collect .iconfont {
   color: orangered;
 }
 .goods_detail .goods_info .goods_title {
-  font-size: 32rpx;
+  font-size: 32 rpx;
   color: var(--themecolor);
   font-weight: 600;
-  padding: 20rpx;
+  padding: 20 rpx;
 }
 .goods_detail .btm_tool {
   position: fixed;
@@ -51,7 +51,7 @@
   bottom: 0;
   width: 100%;
   background: #ffffff;
-  height: 90rpx;
+  height: 90 rpx;
   display: flex;
 }
 .goods_detail .btm_tool .tool_item {
@@ -60,7 +60,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 24rpx;
+  font-size: 24 rpx;
   position: relative;
 }
 .goods_detail .btm_tool .tool_item button {
@@ -73,13 +73,13 @@
 }
 .goods_detail .btm_tool .btn_cart {
   flex: 2;
-  font-size: 30rpx;
+  font-size: 30 rpx;
   color: #fff;
   background: #ffa300;
 }
 .goods_detail .btm_tool .btn_buy {
   flex: 2;
-  font-size: 30rpx;
+  font-size: 30 rpx;
   color: #fff;
   background-color: #f8554e;
 }
