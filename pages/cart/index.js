@@ -61,7 +61,7 @@ Page({
         this.setCart(cart)
     },
 
-    // 计算总价格、商品总数量
+    // 改变cart后，从新计算底部导航栏的 总价格、商品总数量 等
     setCart(cart) {
         let totalPrice = 0, totalNum = 0, allChecked = true
         cart.forEach(c => {
@@ -75,5 +75,14 @@ Page({
         allChecked = cart.length ? allChecked : false
         this.setData({cart, allChecked, totalPrice, totalNum})
         wx.setStorageSync("cart", cart)
+    },
+
+    // 全选&反选
+    handleAllChk() {
+        let {allChecked, cart} = this.data
+        allChecked = !allChecked
+        this.setData({allChecked})
+        cart.forEach(c => c.checked = allChecked)
+        this.setCart(cart)
     }
 })
