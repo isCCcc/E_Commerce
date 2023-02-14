@@ -19,9 +19,7 @@ Page({
         this.picsList = goodsObj.pics
         this.setData({
             goodsObj: {
-                // TODO：没有图片的情况
                 pics: goodsObj.pics,
-                // || [{pics_mid:"https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"}],
                 goods_id: goods_id,
                 goods_price: goodsObj.goods_price,
                 goods_name: goodsObj.goods_name,
