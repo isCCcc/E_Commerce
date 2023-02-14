@@ -16,7 +16,6 @@ Page({
         // const allChecked = cart.length ? cart.every(v => v.checked) : false;
         this.setData({address})
         this.setCart(cart)
-        console.log(cart);
     },
 
     // 新增收获地址
@@ -92,10 +91,19 @@ Page({
         let {cart} = this.data
         let index = cart.findIndex(c => id === c.goods_id)
         if (edit === '-' && cart[index].num === 1) {
-
+            wx.showModal({
+                title: '提示',
+                content: '是否要删除该商品？',
+                success: (res) => {
+                    if (res.confirm) {
+                        cart.splice(index, 1)
+                        this.setCart(cart)  // 注意提示框是个异步任务
+                    }
+                }
+            })
         } else {
             cart[index].num += edit === '+' ? 1 : -1
+            this.setCart(cart)
         }
-        this.setCart(cart)
     }
 })
