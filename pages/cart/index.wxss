@@ -121,3 +121,8 @@ page {
   font-size: 32rpx;
   font-weight: 600;
 }
+.empty {
+  display: block;
+  text-align: center;
+  margin-top: 10rpx;
+}
