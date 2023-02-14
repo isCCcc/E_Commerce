@@ -49,9 +49,9 @@
     </view>
     <view class="total_price_wrap">
         <view class="total_price">
-            合计：<text>￥ 999</text>
+            合计：<text>￥ {{totalPrice}}</text>
             <view class="tips">包含运费</view>
         </view>
     </view>
-    <view class="order_pay_wrap">结算(2)</view>
+    <view class="order_pay_wrap">结算({{totalNum}})</view>
 </view>
