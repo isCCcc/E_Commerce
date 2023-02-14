@@ -14,18 +14,8 @@ Page({
         const cart = wx.getStorageSync("cart")
         //计算全选：注意空数组调用every时为true
         // const allChecked = cart.length ? cart.every(v => v.checked) : false;
-        // 计算总价格、商品总数量
-        let totalPrice = 0, totalNum = 0, allChecked = true
-        cart.forEach(c => {
-            if (c.checked) {
-                totalPrice += c.goods_price * c.num
-                totalNum += c.num
-            } else {
-                allChecked = false
-            }
-        })
-        allChecked = cart.length ? allChecked : false
-        this.setData({address, cart, allChecked, totalPrice, totalNum})
+        this.setData({address})
+        this.setCart(cart)
         console.log(cart);
     },
 
@@ -60,5 +50,30 @@ Page({
                 }
             }
         })
+    },
+
+    //商品的选中 改变checked、重新计算
+    handleItemChange(e) {
+        const goods_id = e.currentTarget.dataset.id
+        let {cart} = this.data
+        let index = cart.findIndex(c => goods_id === c.goods_id)
+        cart[index].checked = !cart[index].checked
+        this.setCart(cart)
+    },
+
+    // 计算总价格、商品总数量
+    setCart(cart) {
+        let totalPrice = 0, totalNum = 0, allChecked = true
+        cart.forEach(c => {
+            if (c.checked) {
+                totalPrice += c.goods_price * c.num
+                totalNum += c.num
+            } else {
+                allChecked = false
+            }
+        })
+        allChecked = cart.length ? allChecked : false
+        this.setData({cart, allChecked, totalPrice, totalNum})
+        wx.setStorageSync("cart", cart)
     }
 })
