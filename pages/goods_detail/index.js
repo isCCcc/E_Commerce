@@ -26,7 +26,7 @@ Page({
                 goods_price: goodsObj.goods_price,
                 goods_name: goodsObj.goods_name,
                 goods_introduce: goodsObj.goods_introduce.replace(/\.webp/g, '.jpg'),
-                goods_small_logo: goodsObj.goods_small_logo
+                goods_small_logo: goodsObj.goods_small_logo || "https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"
             }
         })
     },

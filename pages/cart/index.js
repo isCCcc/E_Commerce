@@ -2,14 +2,17 @@
 Page({
     data: {
         address: {},
-        cart: []
+        cart: [],
+        allChecked: false
     },
 
     // 判断当前用户是否已经添加了收货地址
     onShow() {
         const address = wx.getStorageSync("address")
         const cart = wx.getStorageSync("cart")
-        this.setData({address, cart})
+        //计算全选：注意空数组调用every时为true
+        const allChecked = cart.length ? cart.every(v => v.checked):false;
+            this.setData({address, cart, allChecked})
         console.log(cart);
     },
 
