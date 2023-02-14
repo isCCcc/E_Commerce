@@ -84,5 +84,18 @@ Page({
         this.setData({allChecked})
         cart.forEach(c => c.checked = allChecked)
         this.setCart(cart)
+    },
+
+    // 商品数量的编辑功能
+    handleEdit(e) {
+        let {edit, id} = e.currentTarget.dataset
+        let {cart} = this.data
+        let index = cart.findIndex(c => id === c.goods_id)
+        if (edit === '-' && cart[index].num === 1) {
+
+        } else {
+            cart[index].num += edit === '+' ? 1 : -1
+        }
+        this.setCart(cart)
     }
 })
