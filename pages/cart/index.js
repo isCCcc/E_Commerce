@@ -1,4 +1,7 @@
 // pages/cart/index.js
+import {showToast} from "../../utils/asyncWx";
+import regeneratorRuntime from "../../lib/runtime/runtime"
+
 Page({
     data: {
         address: {},
@@ -105,5 +108,21 @@ Page({
             cart[index].num += edit === '+' ? 1 : -1
             this.setCart(cart)
         }
+    },
+
+    // 商品结算:判断当前有没有收货地址+有没有添加商品 => 跳转页面
+    async handlePay() {
+        const {address, totalNum} = this.data
+        if (!address.userName) {
+            await showToast({title: "请选择收获地址"})
+            return
+        }
+        if (totalNum === 0) {
+            await showToast({title: "请选择结算商品"})
+            return
+        }
+        wx.navigateTo({
+            url: '../pay/index'
+        })
     }
 })

@@ -62,5 +62,5 @@
             <view class="tips">包含运费</view>
         </view>
     </view>
-    <view class="order_pay_wrap">结算({{totalNum}})</view>
+    <view class="order_pay_wrap"  bindtap="handlePay">结算({{totalNum}})</view>
 </view>
